@@ -1,13 +1,13 @@
 # biometric_storage
 
 Encrypted file store, **optionally** secured by biometric lock 
-for Android, iOS but android 5 not supported biometric but can use encrypt with biometric but with random token
+for Android, iOS but android 5 not supported biometric but can use encrypt  with random token
 
 Meant as a way to store small data in a hardware encrypted fashion. E.g. to 
 store passwords, secret keys, etc. but not massive amounts
 of data.
 
-* Android: Uses androidx with KeyStore. but android 5 not supported biometric but can use encrypt with biometric but with random token
+* Android: Uses androidx with KeyStore. but android 5 not supported biometric but can use encrypt with random token
 
 * iOS LocalAuthentication with KeyChain.
 
