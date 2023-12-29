@@ -1,7 +1,7 @@
-import 'package:biometric_storage/auth/android_auth_messages.dart';
-import 'package:biometric_storage/auth/ios_auth_messages.dart';
-import 'package:biometric_storage/biometric_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:tbib_biometric_storage/auth/android_auth_messages.dart';
+import 'package:tbib_biometric_storage/auth/ios_auth_messages.dart';
+import 'package:tbib_biometric_storage/biometric_storage.dart';
 
 void main() {
   TBIBAuth().init(
