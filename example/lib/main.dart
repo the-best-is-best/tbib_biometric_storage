@@ -1,10 +1,25 @@
-import 'package:flutter/material.dart';
-import 'dart:async';
-
-import 'package:flutter/services.dart';
+import 'package:biometric_storage/auth/android_auth_messages.dart';
+import 'package:biometric_storage/auth/ios_auth_messages.dart';
 import 'package:biometric_storage/biometric_storage.dart';
+import 'package:flutter/material.dart';
 
 void main() {
+  TBIBAuth().init(
+      const AndroidAuthMessages(
+        cancelButton: "Cancel",
+        goToSettingsButton: "Settings",
+        goToSettingsDescription: "Please set up your Touch IDs .",
+        biometricHint: "Touch sensors",
+        biometricNotRecognized: "Fingerprint not recognizeds.",
+        deviceCredentialsRequiredTitle: "Fingerprint requireds",
+        deviceCredentialsSetupDescription:
+            "Please set up your Touch ID or Face IDs.",
+      ),
+      const IOSAuthMessages(
+          cancelButton: "Cancel",
+          goToSettingsButton: "Settings",
+          goToSettingsDescription: "Please set up your Touch ID.",
+          lockOut: "Please reenable your Touch ID"));
   runApp(const MyApp());
 }
 
@@ -16,36 +31,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String _platformVersion = 'Unknown';
   final _biometricStoragePlugin = BiometricStorage();
-
-  @override
-  void initState() {
-    super.initState();
-    initPlatformState();
-  }
-
-  // Platform messages are asynchronous, so we initialize in an async method.
-  Future<void> initPlatformState() async {
-    String platformVersion;
-    // Platform messages may fail, so we use a try/catch PlatformException.
-    // We also handle the message potentially returning null.
-    try {
-      platformVersion =
-          await _biometricStoragePlugin.getPlatformVersion() ?? 'Unknown platform version';
-    } on PlatformException {
-      platformVersion = 'Failed to get platform version.';
-    }
-
-    // If the widget was removed from the tree while the asynchronous platform
-    // message was in flight, we want to discard the reply rather than calling
-    // setState to update our non-existent appearance.
-    if (!mounted) return;
-
-    setState(() {
-      _platformVersion = platformVersion;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,8 +41,30 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: Text('Running on: $_platformVersion\n'),
-        ),
+            child: Column(
+          children: [
+            ElevatedButton(
+                onPressed: () async {
+                  var auth =
+                      await _biometricStoragePlugin.auth("Login to save data");
+                  if (auth) {
+                    await _biometricStoragePlugin.write("login", "user id 1");
+                  }
+                },
+                child: const Text("Save data demo")),
+            const SizedBox(height: 10),
+            ElevatedButton(
+                onPressed: () async {
+                  var auth =
+                      await _biometricStoragePlugin.auth("Login to get data");
+                  if (auth) {
+                    var retrive = await _biometricStoragePlugin.read("login");
+                    print("data retrive is $retrive");
+                  }
+                },
+                child: const Text("Get data demo"))
+          ],
+        )),
       ),
     );
   }

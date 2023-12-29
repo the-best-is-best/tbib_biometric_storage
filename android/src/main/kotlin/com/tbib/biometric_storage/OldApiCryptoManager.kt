@@ -1,4 +1,4 @@
-package com.tbib.biometricstorage
+package com.tbib.biometric_storage
 
 import android.content.Context
 import java.io.File

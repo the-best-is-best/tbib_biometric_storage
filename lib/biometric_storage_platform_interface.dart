@@ -23,7 +23,26 @@ abstract class BiometricStoragePlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  Future<String?> getPlatformVersion() {
-    throw UnimplementedError('platformVersion() has not been implemented.');
+  // Future<String?> getPlatformVersion() {
+  //   throw UnimplementedError('platformVersion() has not been implemented.');
+  // }
+  Future<bool> canAuth() {
+    throw UnimplementedError('canAuth() has not been implemented.');
+  }
+
+  Future<bool> auth(String reason) {
+    throw UnimplementedError('auth() has not been implemented.');
+  }
+
+  // void init(String boxName) {
+  //   throw UnimplementedError('init() has not been implemented.');
+  // }
+
+  Future<String?> read(String key) {
+    throw UnimplementedError('read() has not been implemented.');
+  }
+
+  Future<void> write(String key, String value) {
+    throw UnimplementedError('write() has not been implemented.');
   }
 }

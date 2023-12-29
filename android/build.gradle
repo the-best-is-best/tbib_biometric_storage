@@ -29,7 +29,7 @@ android {
         namespace 'com.tbib.biometric_storage'
     }
 
-    compileSdkVersion 33
+    compileSdkVersion 34
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -46,12 +46,21 @@ android {
     }
 
     defaultConfig {
-        minSdkVersion 19
+        minSdkVersion 21
     }
 
     dependencies {
         testImplementation 'org.jetbrains.kotlin:kotlin-test'
         testImplementation 'org.mockito:mockito-core:5.0.0'
+
+        implementation 'androidx.annotation:annotation:1.7.1'
+        implementation 'androidx.biometric:biometric:1.2.0-alpha05'
+        implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3'
+        implementation 'androidx.fragment:fragment-ktx:1.6.2'
+
+
+
+
     }
 
     testOptions {

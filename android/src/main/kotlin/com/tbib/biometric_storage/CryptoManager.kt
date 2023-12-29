@@ -1,4 +1,4 @@
-package com.tbib.biometricstorage
+package com.tbib.biometric_storage
 
 import android.content.Context
 import android.os.Build
@@ -14,7 +14,7 @@ import javax.crypto.Cipher
 class CryptoManager(private val context: Context) {
     private val keyStore = KeyStore.getInstance("AndroidKeyStore").apply { load(null) }
 
-    fun encryptAndSave(text: String, fileName: String, alias: String): ByteArray {
+    fun encryptAndSave(text: String, fileName: String): ByteArray {
         val keyPair = getKeyPair()
         val cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding")
         cipher.init(Cipher.ENCRYPT_MODE, keyPair.public)
