@@ -3,7 +3,7 @@ description:
   "Secure Storage: Encrypted data store optionally secured by biometric lock with support
   for iOS, Android"
 version: 1.0.0
-homepage: null
+homepage: "https://github.com/the-best-is-best/tbib_biometric_storage"
 
 environment:
   sdk: ">=2.17.0 <4.0.0"
