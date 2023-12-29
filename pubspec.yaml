@@ -1,11 +1,13 @@
-name: biometric_storage
-description: "A new Flutter project."
-version: 0.0.1
+name: tbib_biometric_storage
+description:
+  "Secure Storage: Encrypted data store optionally secured by biometric lock with support
+  for iOS, Android"
+version: 1.0.0
 homepage: null
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'
-  flutter: '>=3.0.0'
+  sdk: ">=2.17.0 <4.0.0"
+  flutter: ">=2.8.0"
 
 dependencies:
   flutter:

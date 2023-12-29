@@ -5,7 +5,7 @@ class TBIBAuth {
   static AndroidAuthMessages? _android;
   static IOSAuthMessages? _ios;
 
-  void init(AndroidAuthMessages android, IOSAuthMessages ios) {
+  void init({AndroidAuthMessages? android, IOSAuthMessages? ios}) {
     _android = android;
     _ios = ios;
   }

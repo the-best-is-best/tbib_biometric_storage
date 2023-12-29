@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 void main() {
   TBIBAuth().init(
-      const AndroidAuthMessages(
+      android: const AndroidAuthMessages(
         cancelButton: "Cancel",
         goToSettingsButton: "Settings",
         goToSettingsDescription: "Please set up your Touch IDs .",
@@ -15,7 +15,7 @@ void main() {
         deviceCredentialsSetupDescription:
             "Please set up your Touch ID or Face IDs.",
       ),
-      const IOSAuthMessages(
+      ios: const IOSAuthMessages(
           cancelButton: "Cancel",
           goToSettingsButton: "Settings",
           goToSettingsDescription: "Please set up your Touch ID.",
@@ -48,7 +48,8 @@ class _MyAppState extends State<MyApp> {
                   var auth =
                       await _biometricStoragePlugin.auth("Login to save data");
                   if (auth) {
-                    await _biometricStoragePlugin.write("login", "user id 100s");
+                    await _biometricStoragePlugin.write(
+                        "login", "user id 100s");
                   }
                 },
                 child: const Text("Save data demo")),

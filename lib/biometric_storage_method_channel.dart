@@ -1,7 +1,7 @@
-import 'package:biometric_storage/auth/tbib_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:local_auth/local_auth.dart';
+import 'package:tbib_biometric_storage/auth/tbib_auth.dart';
 
 import 'biometric_storage_platform_interface.dart';
 
