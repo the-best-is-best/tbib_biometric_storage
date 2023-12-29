@@ -48,7 +48,7 @@ class _MyAppState extends State<MyApp> {
                   var auth =
                       await _biometricStoragePlugin.auth("Login to save data");
                   if (auth) {
-                    await _biometricStoragePlugin.write("login", "user id 1");
+                    await _biometricStoragePlugin.write("login", "user id 100s");
                   }
                 },
                 child: const Text("Save data demo")),
